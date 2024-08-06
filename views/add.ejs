@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style>
+    /* styles.css */
+
+    /* General Body Styling */
+    body {
+        background-color: #e9f7fc;
+        /* Light blue background */
+        color: #003f6c;
+        /* Dark blue text color */
+        font-family: Arial, sans-serif;
+        /* Font family */
+    }
+
+    /* Heading Styles */
+    h1 {
+        color: #003f6c;
+        /* Dark blue */
+        margin-bottom: 20px;
+        /* Spacing below the heading */
+    }
+
+    /* Button Styles */
+    .btn-primary {
+        background-color: #0056b3;
+        /* Darker blue for primary button */
+        border-color: #004494;
+        /* Border color for primary button */
+    }
+
+    .btn-primary:hover {
+        background-color: #004494;
+        /* Darker shade on hover */
+        border-color: #003b73;
+        /* Darker border on hover */
+    }
+
+    .btn-secondary {
+        background-color: #007bff;
+        /* Bright blue for secondary button */
+        border-color: #0069d9;
+        /* Border color for secondary button */
+    }
+
+    .btn-secondary:hover {
+        background-color: #0069d9;
+        /* Darker shade on hover */
+        border-color: #0056b3;
+        /* Darker border on hover */
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        /* Light blue for info button */
+        border-color: #117a8b;
+        /* Border color for info button */
+    }
+
+    .btn-info:hover {
+        background-color: #117a8b;
+        /* Darker shade on hover */
+        border-color: #0e6a75;
+        /* Darker border on hover */
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        /* Red for danger button */
+        border-color: #c82333;
+        /* Border color for danger button */
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        /* Darker shade on hover */
+        border-color: #ab2126;
+        /* Darker border on hover */
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        /* Yellow for warning button */
+        border-color: #e0a800;
+        /* Border color for warning button */
+    }
+
+    .btn-warning:hover {
+        background-color: #e0a800;
+        /* Darker shade on hover */
+        border-color: #d39e00;
+        /* Darker border on hover */
+    }
+
+    .btn-sm {
+        font-size: 0.875rem;
+        /* Smaller font size for small buttons */
+    }
+
+    /* Table Styles */
+    .table thead th {
+        background-color: #0056b3;
+        /* Dark blue background for table header */
+        color: white;
+        /* White text color for table header */
+    }
+
+    .table tbody tr:hover {
+        background-color: #cce5ff;
+        /* Light blue background on row hover */
+    }
+
+    /* Form Styles */
+    form {
+        margin-top: 20px;
+        /* Spacing above the form */
+    }
+
+    input[type="checkbox"] {
+        cursor: pointer;
+        /* Pointer cursor for checkboxes */
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add Item</h1>
+        <form action="/add" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Item</button>
+        </form>
+    </div>
+</body>
+
+</html>

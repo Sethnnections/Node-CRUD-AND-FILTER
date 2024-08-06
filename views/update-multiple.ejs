@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Multiple Items</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* General Body Styling */
+        body {
+            background-color: #e9f7fc;
+            /* Light blue background */
+            color: #003f6c;
+            /* Dark blue text color */
+            font-family: Arial, sans-serif;
+            /* Font family */
+        }
+
+        /* Heading Styles */
+        h1 {
+            color: #003f6c;
+            /* Dark blue */
+            margin-bottom: 20px;
+            /* Spacing below the heading */
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background-color: #0056b3;
+            /* Darker blue for primary button */
+            border-color: #004494;
+            /* Border color for primary button */
+        }
+
+        .btn-primary:hover {
+            background-color: #004494;
+            /* Darker shade on hover */
+            border-color: #003b73;
+            /* Darker border on hover */
+        }
+
+        .btn-sm {
+            font-size: 0.875rem;
+            /* Smaller font size for small buttons */
+        }
+
+        /* Form Styles */
+        form {
+            margin-top: 20px;
+            /* Spacing above the form */
+        }
+
+        .item-form {
+            margin-bottom: 20px;
+            /* Spacing between item forms */
+            padding: 15px;
+            border: 1px solid #ddd;
+            /* Border around each item form */
+            border-radius: 5px;
+            /* Rounded corners for item form */
+            background-color: #ffffff;
+            /* White background for item form */
+        }
+
+        .form-group label {
+            font-weight: bold;
+            /* Bold labels for form fields */
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+            /* Spacing below form controls */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1>Update Multiple Items</h1>
+        <form action="/update-multiple" method="POST">
+            <% items.forEach(item=> { %>
+                <div class="item-form">
+                    <input type="hidden" name="id[]" value="<%= item.id %>">
+                    <div class="form-group">
+                        <label for="name_<%= item.id %>">Name</label>
+                        <input type="text" id="name_<%= item.id %>" name="name[]" class="form-control"
+                            value="<%= item.name %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description_<%= item.id %>">Description</label>
+                        <textarea id="description_<%= item.id %>" name="description[]" class="form-control" rows="3"
+                            required><%= item.description %></textarea>
+                    </div>
+                </div>
+                <% }); %>
+                    <button type="submit" class="btn btn-primary">Update Items</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

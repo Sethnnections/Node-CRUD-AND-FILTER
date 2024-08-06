@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Item</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* General Body Styling */
+        body {
+            background-color: #e9f7fc;
+            /* Light blue background */
+            color: #003f6c;
+            /* Dark blue text color */
+            font-family: Arial, sans-serif;
+            /* Font family */
+        }
+
+        /* Heading Styles */
+        h1 {
+            color: #003f6c;
+            /* Dark blue */
+            margin-bottom: 20px;
+            /* Spacing below the heading */
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background-color: #0056b3;
+            /* Darker blue for primary button */
+            border-color: #004494;
+            /* Border color for primary button */
+        }
+
+        .btn-primary:hover {
+            background-color: #004494;
+            /* Darker shade on hover */
+            border-color: #003b73;
+            /* Darker border on hover */
+        }
+
+        .btn-sm {
+            font-size: 0.875rem;
+            /* Smaller font size for small buttons */
+        }
+
+        /* Form Styles */
+        form {
+            margin-top: 20px;
+            /* Spacing above the form */
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+            /* Spacing below form controls */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1>Update Item</h1>
+
+        <!-- Alert Placeholder -->
+        <div id="alert-placeholder"></div>
+
+        <form action="/update/<%= item.id %>" method="POST" id="update-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" value="<%= item.name %>" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" class="form-control" rows="3"
+                    required><%= item.description %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Item</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to display alerts
+        function showAlert(type, message) {
+            const alertPlaceholder = document.getElementById('alert-placeholder');
+            alertPlaceholder.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>`;
+        }
+
+        // Example: Display a success message (this can be modified as per your needs)
+        // showAlert('success', 'Item updated successfully.');
+
+        // Example: Display an error message
+        // showAlert('danger', 'Error updating item. Please try again.');
+    </script>
+</body>
+
+</html>
